@@ -16,7 +16,7 @@ const HomePage = () => {
             return;
         }
         const data = await response.json();
-        setData(data);
+        setData(data.users);
     };
     return (
         <div>

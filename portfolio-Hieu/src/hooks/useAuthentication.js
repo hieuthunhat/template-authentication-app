@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useCookie } from "./useCookie";
 
 /**
- * hook for authentication management
+ * Hook for authentication management
  * @returns 
  */
 const useAuthentication = () => {
@@ -12,7 +12,7 @@ const useAuthentication = () => {
     const [originalRoute, setOriginalRoute] = useState(null);
 
     /**
-     * fetch login API
+     * Fetch login API
      * @param {*} username 
      * @param {*} password 
      * @returns 
@@ -35,7 +35,7 @@ const useAuthentication = () => {
     };
 
     /**
-     * fetch logout API
+     * Fetch logout API
      */
     const logout = async () => {
         await fetch("http://localhost:5000/api/logout", {
