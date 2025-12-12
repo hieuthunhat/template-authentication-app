@@ -4,19 +4,19 @@ import useAuthentication from "../hooks/useAuthentication";
 const AuthenticationContext = createContext(null);
 
 export const useAuth = () => {
-    const context = useContext(AuthenticationContext);
-    if (!context) {
-        throw new Error('useAuth must be used within an AuthProvider');
-    }
-    return context;
+  const context = useContext(AuthenticationContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
 };
 
 export const AuthProvider = ({ children }) => {
-    const authHook = useAuthentication();
-    
-    return (
-        <AuthenticationContext.Provider value={authHook}>
-            {!authHook.loading && children}
-        </AuthenticationContext.Provider>
-    );
+  const auth = useAuthentication();
+
+  return (
+    <AuthenticationContext.Provider value={auth}>
+      {!auth.loading && children}
+    </AuthenticationContext.Provider>
+  );
 };

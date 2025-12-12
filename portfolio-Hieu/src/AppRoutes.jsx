@@ -10,7 +10,8 @@ const AppRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="" element={user ? <HomePage /> : <LoginPage />} />
-                <Route path={"aboutme"} element={user ? <AboutMePage /> : <LoginPage />} />
+                <Route path={"aboutme"} element={ user ? <AboutMePage /> : <LoginPage />} />
+                
             </Routes>
         </BrowserRouter>
     )
