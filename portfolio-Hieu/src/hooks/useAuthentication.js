@@ -1,12 +1,22 @@
 import { useState, useEffect } from "react";
 import { useCookie } from "./useCookie";
 
+/**
+ * hook for authentication management
+ * @returns 
+ */
 const useAuthentication = () => {
     const { cookie, setCookie, removeCookie, getCookie } = useCookie('access_token');
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [originalRoute, setOriginalRoute] = useState(null);
 
+    /**
+     * fetch login API
+     * @param {*} username 
+     * @param {*} password 
+     * @returns 
+     */
     const login = async (username, password) => {
         const res = await fetch("http://localhost:5000/api/login", {
             method: "POST",
@@ -24,6 +34,9 @@ const useAuthentication = () => {
         return data.user;
     };
 
+    /**
+     * fetch logout API
+     */
     const logout = async () => {
         await fetch("http://localhost:5000/api/logout", {
             method: "POST",
@@ -34,6 +47,9 @@ const useAuthentication = () => {
         removeCookie();
     };
 
+    /**
+     * fetch protected API to recheck authentication status
+     */
     const recheckAuthentication = async () => {
         setLoading(true);
         try {

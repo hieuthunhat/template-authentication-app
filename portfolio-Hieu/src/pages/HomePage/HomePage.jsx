@@ -1,6 +1,8 @@
 import { useState } from "react";
+import useSocket from "../../hooks/useSocket";
 
 const HomePage = () => {
+    const socket = useSocket();
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const fetchData = async () => {
