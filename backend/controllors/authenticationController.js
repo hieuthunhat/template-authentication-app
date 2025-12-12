@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import accounts from "../consts/sampleData";
+import accounts from "../consts/sampleData.js";
 
 /**
  * Login action
