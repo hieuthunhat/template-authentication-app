@@ -1,5 +1,12 @@
 import jwt from 'jsonwebtoken';
 
+/**
+ * Authorization middleware to protect routes
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 const authorization = (req, res, next) => {
   const token = req.cookies.access_token;
   if (!token) {
