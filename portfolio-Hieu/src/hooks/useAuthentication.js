@@ -6,10 +6,9 @@ import { useCookie } from "./useCookie";
  * @returns 
  */
 const useAuthentication = () => {
-    const { cookie, setCookie, removeCookie, getCookie } = useCookie('access_token');
+    const { removeCookie } = useCookie('access_token');
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [originalRoute, setOriginalRoute] = useState(null);
 
     /**
      * Fetch login API
@@ -48,7 +47,7 @@ const useAuthentication = () => {
     };
 
     /**
-     * fetch protected API to recheck authentication status
+     * Fetch protected API to recheck authentication status
      */
     const recheckAuthentication = async () => {
         setLoading(true);

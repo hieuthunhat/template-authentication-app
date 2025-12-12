@@ -1,8 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage';
-import { useAuth } from './contexts/AuthenticationContext';
 import LoginPage from './pages/LoginPage/LoginPage';
 import AboutMePage from './pages/AboutMePage/AboutMePage';
+import useAuthentication from './hooks/useAuthentication';
 
 /**
  * If user is authenticated, they can access pages directly,
@@ -10,13 +10,12 @@ import AboutMePage from './pages/AboutMePage/AboutMePage';
  * @returns 
  */
 const AppRoutes = () => {
-    const { user } = useAuth();
+    const { user } = useAuthentication();
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="" element={user ? <HomePage /> : <LoginPage />} />
                 <Route path={"aboutme"} element={ user ? <AboutMePage /> : <LoginPage />} />
-                
             </Routes>
         </BrowserRouter>
     )
