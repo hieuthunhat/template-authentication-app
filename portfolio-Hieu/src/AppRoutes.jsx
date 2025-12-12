@@ -4,6 +4,11 @@ import { useAuth } from './contexts/AuthenticationContext';
 import LoginPage from './pages/LoginPage/LoginPage';
 import AboutMePage from './pages/AboutMePage/AboutMePage';
 
+/**
+ * If user is authenticated, they can access pages directly,
+ * otherwise they will be redirected to the LoginPage
+ * @returns 
+ */
 const AppRoutes = () => {
     const { user } = useAuth();
     return (
