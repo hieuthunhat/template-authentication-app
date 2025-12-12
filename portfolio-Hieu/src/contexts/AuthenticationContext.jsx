@@ -12,13 +12,11 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-    const { user, login, logout, loading } = useAuthentication();
-    const value = { user, login, logout };
-    console.log(user);
+    const authHook = useAuthentication();
     
     return (
-        <AuthenticationContext.Provider value={value}>
-            {!loading && children}
+        <AuthenticationContext.Provider value={authHook}>
+            {!authHook.loading && children}
         </AuthenticationContext.Provider>
     );
 };
